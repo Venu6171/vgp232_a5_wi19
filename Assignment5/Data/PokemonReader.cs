@@ -25,7 +25,7 @@ namespace Assignment5.Data
         /// </summary>
         /// <param name="filepath">The location of the xml file</param>
         /// <returns>A list of Pokemons</returns>
-        public Pokedex Load(string filepath)
+        public Pokedex LoadPokedex(string filepath)
         {
             if (!File.Exists(filepath))
             {
@@ -47,6 +47,11 @@ namespace Assignment5.Data
             }
 
             return dex;
+        }
+
+        public PokemonBag LoadText(string path)
+        {
+
         }
 
     }

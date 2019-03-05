@@ -48,6 +48,7 @@
     <Compile Include="Data\Pokemon.cs" />
     <Compile Include="Data\PokemonBag.cs" />
     <Compile Include="Data\PokemonReader.cs" />
+    <Compile Include="Data\PokemonWriter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
