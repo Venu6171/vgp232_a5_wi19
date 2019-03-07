@@ -49,10 +49,10 @@ namespace Assignment5.Data
             return dex;
         }
 
-        public PokemonBag LoadText(string path)
-        {
+        //public PokemonBag LoadText(string path)
+        //{
 
-        }
+        //}
 
     }
 }
