@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 using System.Xml.Serialization;
 
 namespace Assignment5.Data
@@ -23,6 +25,45 @@ namespace Assignment5.Data
                 Items = value.Select(x => new Entry() { Key = x.Key, Value = x.Value }).ToList();
             }
         }
+
+        public void Serialize(string file)
+        {
+            string inventoryFile = file;
+            using (var writer = XmlWriter.Create(inventoryFile))
+                (new XmlSerializer(typeof(Inventory))).Serialize(writer, Items);
+        }
+
+        public void Deserialize(string file)
+        {
+            string inventoryFile = file;
+            using (var writer = XmlWriter.Create(inventoryFile))
+                (new XmlSerializer(typeof(Inventory))).Serialize(writer, Items);
+
+            using (var reader = new StreamReader(inventoryFile))
+            {
+                var serializer = new XmlSerializer(typeof(Inventory));
+
+                try
+                {
+                    Inventory inventory = serializer.Deserialize(reader) as Inventory;
+                    if (inventory != null)
+                    {
+                        foreach (var item in inventory.ItemToQuantity)
+                        {
+                            Console.WriteLine("Item: {0} Quantity: {1}", item.Key, item.Value);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Cannot load {0} due to the following {1}",
+                        inventoryFile, ex.Message);
+                }
+            }
+
+        }
+
+
 
         public Inventory()
         {

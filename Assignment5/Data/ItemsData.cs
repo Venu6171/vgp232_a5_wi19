@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 using System.Xml.Serialization;
 
 namespace Assignment5.Data
@@ -28,7 +29,51 @@ namespace Assignment5.Data
         public List<Item> UnlockedItemsAtLevel(int level)
         {
             // TODO: implement function to get all items and add unit to confirm it works.
-            throw new NotImplementedException();
+            int Additem = 0;
+            Item itemdata = new Item();
+            XmlTextReader readerItem = new XmlTextReader("itemData.xml");
+            while (readerItem.Read())
+            {
+                if (readerItem.NodeType == XmlNodeType.Element && readerItem.Name == "Name")
+                {
+                    string name = readerItem.ReadElementContentAsString();
+                    itemdata.Name = name;
+                }
+
+                if (readerItem.NodeType == XmlNodeType.Element && readerItem.Name == "UnlockRequirement")
+                {
+                    string UnlockRequirement = readerItem.ReadElementContentAsString();
+                    itemdata.UnlockRequirement = Int32.Parse(UnlockRequirement);
+                    if(itemdata.UnlockRequirement <= level)
+                    {
+                        Additem = 1;
+                    }
+
+                }
+
+                if (readerItem.NodeType == XmlNodeType.Element && readerItem.Name == "Description")
+                {
+                    string Description = readerItem.ReadElementContentAsString();
+                    itemdata.Description = Description;
+                }
+
+                if (readerItem.NodeType == XmlNodeType.Element && readerItem.Name == "Effect")
+                {
+                    string Effect = readerItem.ReadElementContentAsString();
+                    itemdata.Effect = Effect;
+                    
+                }
+
+                if (Additem == 1)
+                {
+                    Items.Add(itemdata);
+                    itemdata = new Item();
+                    Additem = 0;
+                }
+            }
+
+            return Items;
+            
         }
 
         /// <summary>
@@ -38,8 +83,13 @@ namespace Assignment5.Data
         /// <returns>The item with the name specified or null if not found</returns>
         public Item FindItem(string name)
         {
+
+
+
             // TODO: implement function to find the item with the name specified.
-            throw new NotImplementedException();
+            return Items.Find(x => x.Name == name);
+           
+            
         }
     }
 }
