@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
+
 namespace Assignment5.Data
 {
     public class Pokemon
@@ -20,6 +21,7 @@ namespace Assignment5.Data
 
         public void Write(ref StreamWriter streamWriter)
         {
+
             streamWriter.WriteLine(Name);
             streamWriter.WriteLine(Type1);
             if (!Type2.Equals(""))

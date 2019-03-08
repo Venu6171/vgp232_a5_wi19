@@ -82,6 +82,83 @@ namespace PokemonTests
 
         }
 
+        [TestMethod]
+        public void TestMethod5()
+        {
+            Pokedex poke = new Pokedex();
+            PokemonReader pokemonReader = new PokemonReader();
+
+            poke = pokemonReader.LoadPokedex("pokemon151.xml");
+           
+            Assert.IsNotNull(poke.GetPokemonsOfType("Fire"));
+        }
+
+        [TestMethod]
+        public void TestMethod6()
+        {
+            Pokedex poke = new Pokedex();
+            PokemonReader pokemonReader = new PokemonReader();
+
+            poke = pokemonReader.LoadPokedex("pokemon151.xml");
+
+            Assert.IsNotNull(poke.GetPokemonByName("Bulbasaur"));
+        }
+
+        [TestMethod]
+        public void TestMethod7()
+        {
+            Pokedex poke = new Pokedex();
+            PokemonReader pokemonReader = new PokemonReader();
+
+            poke = pokemonReader.LoadPokedex("pokemon151.xml");
+
+            Assert.IsNotNull(poke.GetPokemonByIndex(6));
+        }
+
+        [TestMethod]
+        public void TestMethod8()
+        {
+            Pokedex poke = new Pokedex();
+            PokemonReader pokemonReader = new PokemonReader();
+
+            poke = pokemonReader.LoadPokedex("pokemon151.xml");
+
+            Assert.AreEqual(4178, poke.GetHighestMaxCPPokemon().MaxCP);
+        }
+
+        [TestMethod]
+        public void TestMethod9()
+        {
+            Pokedex poke = new Pokedex();
+            PokemonReader pokemonReader = new PokemonReader();
+
+            poke = pokemonReader.LoadPokedex("pokemon151.xml");
+
+            Assert.AreEqual(487, poke.GetHighestHPPokemon().HP);
+        }
+
+        [TestMethod]
+        public void TestMethod10()
+        {
+            Pokedex poke = new Pokedex();
+            PokemonReader pokemonReader = new PokemonReader();
+
+            poke = pokemonReader.LoadPokedex("pokemon151.xml");
+
+            Assert.AreEqual(300, poke.GetHighestAttackPokemon().Attack);
+        }
+
+        [TestMethod]
+        public void TestMethod11()
+        {
+            Pokedex poke = new Pokedex();
+            PokemonReader pokemonReader = new PokemonReader();
+
+            poke = pokemonReader.LoadPokedex("pokemon151.xml");
+
+            Assert.AreEqual(256, poke.GetHighestDefensePokemon().Defense);
+        }
+
     }
 
 

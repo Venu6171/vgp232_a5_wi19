@@ -45,14 +45,7 @@ namespace Assignment5.Data
                         filepath, ex.Message));
                 }
             }
-
             return dex;
         }
-
-        //public PokemonBag LoadText(string path)
-        //{
-
-        //}
-
     }
 }

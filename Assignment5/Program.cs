@@ -33,16 +33,20 @@ namespace Assignment5
             pokemonbag.Pokemons.Add(151);
             pokemonbag.Pokemons.Add(149);
 
-            using (PokemonUtil pokemonUtil = new PokemonUtil("PokemonBag.xml"))
+            using (PokemonUtil pokemonUtil = new PokemonUtil("PokemonBag"))
             {
                 pokemonUtil.Init();
                 pokemonUtil.AddPokemonsToProcess(ref pokemonbag, ref pokedex);
                 pokemonUtil.Write();
+                pokemonUtil.WriteXml();
                 pokemonUtil.Print();
                 pokemonUtil.Clear();
             }
 
+            Pokedex dex = reader.LoadPokedex("PokemonBag.xml");
+
             Console.ReadKey();
         }
+
     }
 }
