@@ -12,5 +12,15 @@ namespace Assignment5.Data
         public int UnlockRequirement { get; set; }
         public string Description { get; set; }
         public string Effect { get; set; }
+
+        public void Print()
+        {
+            Console.WriteLine("Name: " + Name);
+            Console.WriteLine("UnlockRequirement: " + UnlockRequirement);
+            Console.WriteLine("Description: " + Description);
+            Console.WriteLine("Effect: " + Effect);
+            Console.WriteLine("\n");
+
+        }
     }
 }
