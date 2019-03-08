@@ -75,9 +75,14 @@ namespace Assignment5
                 ItemToQuantity =
                     new Dictionary<object, object> { { "Poke ball", 10 }, { "Potion", 10 } }
             };
-            
+
 
             // TODO: move this into a inventory with a serialize and deserialize function.
+
+            source.Serialize(source, "inventory.xml");
+            source.Deserialize("inventory.xml");
+
+
 
 
 

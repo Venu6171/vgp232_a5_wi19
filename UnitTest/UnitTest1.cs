@@ -25,13 +25,41 @@ namespace UnitTest
         [TestMethod]
         public void ItemTest()
         {
-            Item item = new Item();
-            item.Name = "abc";
-            item.UnlockRequirement = 1;
-            item.Description = "aaa";
-            item.Effect = "";
+            Item itemdata = new Item();
+            List<Item> itemlist = new List<Item>();
+            XmlTextReader readerItem = new XmlTextReader("itemData.xml");
 
-            Assert.AreEqual(item.Name, "abc");
+            while (readerItem.Read())
+            {
+                if (readerItem.NodeType == XmlNodeType.Element && readerItem.Name == "Name")
+                {
+                    string name = readerItem.ReadElementContentAsString();
+                    itemdata.Name = name;
+                }
+
+                if (readerItem.NodeType == XmlNodeType.Element && readerItem.Name == "UnlockRequirement")
+                {
+                    string UnlockRequirement = readerItem.ReadElementContentAsString();
+                    itemdata.UnlockRequirement = Int32.Parse(UnlockRequirement);
+                }
+
+                if (readerItem.NodeType == XmlNodeType.Element && readerItem.Name == "Description")
+                {
+                    string Description = readerItem.ReadElementContentAsString();
+                    itemdata.Description = Description;
+                }
+
+                if (readerItem.NodeType == XmlNodeType.Element && readerItem.Name == "Effect")
+                {
+                    string Effect = readerItem.ReadElementContentAsString();
+                    itemdata.Effect = Effect;
+                    itemlist.Add(itemdata);
+                    itemdata = new Item();
+                }
+                
+            }
+
+            Assert.AreEqual(itemlist.Capacity, 16);
         }
 
         [TestMethod]
@@ -63,5 +91,19 @@ namespace UnitTest
 
             Assert.AreEqual(item.Name, "Potion");
         }
+
+        [TestMethod]
+        public void InventoryTest()
+        {
+            Inventory source = new Inventory()
+            {
+                ItemToQuantity =
+                    new Dictionary<object, object> { { "Poke ball", 10 }, { "Potion", 10 } }
+            };
+
+            Assert.AreEqual(source.Items.Capacity, 4);
+
+        }
+
     }
 }

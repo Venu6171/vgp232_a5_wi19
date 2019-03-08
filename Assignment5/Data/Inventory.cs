@@ -26,19 +26,16 @@ namespace Assignment5.Data
             }
         }
 
-        public void Serialize(string file)
+        public void Serialize(Inventory source, string file)
         {
             string inventoryFile = file;
             using (var writer = XmlWriter.Create(inventoryFile))
-                (new XmlSerializer(typeof(Inventory))).Serialize(writer, Items);
+                (new XmlSerializer(typeof(Inventory))).Serialize(writer, source);
         }
 
         public void Deserialize(string file)
         {
             string inventoryFile = file;
-            using (var writer = XmlWriter.Create(inventoryFile))
-                (new XmlSerializer(typeof(Inventory))).Serialize(writer, Items);
-
             using (var reader = new StreamReader(inventoryFile))
             {
                 var serializer = new XmlSerializer(typeof(Inventory));
