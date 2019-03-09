@@ -79,65 +79,6 @@ namespace Assignment5.Data
             }
         }
 
-        //public void WriteXml()
-        //{
-        //    XmlWriter xmlWriter = XmlWriter.Create(xmlPath);
-        //    xmlWriter.WriteStartDocument();
-        //    xmlWriter.WriteWhitespace("\n");
-        //    xmlWriter.WriteStartElement("Pokedex");
-        //    xmlWriter.WriteWhitespace("\n");
-        //    xmlWriter.WriteStartElement("Pokemons");
-        //    xmlWriter.WriteWhitespace("\n");
-
-        //    foreach (Pokemon pokemon in pokemonsToProcess)
-        //    {
-        //        xmlWriter.WriteStartElement("Pokemon");
-        //        xmlWriter.WriteWhitespace("\n");
-        //        xmlWriter.WriteStartElement(nameof(pokemon.Index));
-        //        xmlWriter.WriteValue(pokemon.Index);
-        //        xmlWriter.WriteEndElement();
-        //        xmlWriter.WriteWhitespace("\n");
-        //        xmlWriter.WriteStartElement(nameof(pokemon.Name));
-        //        xmlWriter.WriteString(pokemon.Name);
-        //        xmlWriter.WriteEndElement();
-        //        xmlWriter.WriteWhitespace("\n");
-        //        xmlWriter.WriteStartElement(nameof(pokemon.Type1));
-        //        xmlWriter.WriteString(pokemon.Type1);
-        //        xmlWriter.WriteEndElement();
-        //        xmlWriter.WriteWhitespace("\n");
-        //        xmlWriter.WriteStartElement(nameof(pokemon.Type2));
-        //        xmlWriter.WriteString(pokemon.Type2);
-        //        xmlWriter.WriteEndElement();
-        //        xmlWriter.WriteWhitespace("\n");
-        //        xmlWriter.WriteStartElement(nameof(pokemon.HP));
-        //        xmlWriter.WriteValue(pokemon.HP);
-        //        xmlWriter.WriteEndElement();
-        //        xmlWriter.WriteWhitespace("\n");
-        //        xmlWriter.WriteStartElement(nameof(pokemon.Attack));
-        //        xmlWriter.WriteValue(pokemon.Attack);
-        //        xmlWriter.WriteEndElement();
-        //        xmlWriter.WriteWhitespace("\n");
-        //        xmlWriter.WriteStartElement(nameof(pokemon.Defense));
-        //        xmlWriter.WriteValue(pokemon.Defense);
-        //        xmlWriter.WriteEndElement();
-        //        xmlWriter.WriteWhitespace("\n");
-        //        xmlWriter.WriteStartElement(nameof(pokemon.MaxCP));
-        //        xmlWriter.WriteValue(pokemon.MaxCP);
-        //        xmlWriter.WriteEndElement();
-        //        xmlWriter.WriteWhitespace("\n");
-        //        xmlWriter.WriteEndElement();
-        //        xmlWriter.WriteWhitespace("\n");
-        //    }
-        //    xmlWriter.WriteEndElement();
-        //    xmlWriter.WriteWhitespace("\n");
-        //    xmlWriter.WriteEndElement();
-        //    xmlWriter.WriteWhitespace("\n");
-        //    xmlWriter.WriteEndDocument();
-        //    xmlWriter.Close();
-        //}
-
-
-
         public void Print()
         {
             foreach (Pokemon pokemon in pokemonsToProcess)
