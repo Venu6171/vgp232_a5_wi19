@@ -37,17 +37,24 @@ namespace Assignment5
             pokemonbag.Pokemons.Add(151);
             pokemonbag.Pokemons.Add(149);
 
+            Pokedex newPokedex = new Pokedex();
+
             using (PokemonUtil pokemonUtil = new PokemonUtil("PokemonBag"))
             {
                 pokemonUtil.Init();
                 pokemonUtil.AddPokemonsToProcess(ref pokemonbag, ref pokedex);
+                newPokedex.Pokemons.AddRange(pokemonUtil.PokemonsToProcess);
                 pokemonUtil.Write();
-                pokemonUtil.WriteXml();
                 pokemonUtil.Print();
                 pokemonUtil.Clear();
+                
             }
 
+            PokemonWriter pokemonWriter = new PokemonWriter();
+            pokemonWriter.SavePokemons("PokemonBag.xml", ref newPokedex);
+
             Pokedex dex = reader.LoadPokedex("PokemonBag.xml");
+
             // TODO: load the pokemon151 xml
             XElement pokemon151XML = XElement.Load(@"pokemon151.xml");
             // Console.WriteLine(pokemon151XML);
